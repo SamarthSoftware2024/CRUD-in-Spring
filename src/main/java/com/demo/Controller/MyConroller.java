@@ -3,6 +3,7 @@ package com.demo.Controller;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,10 @@ import com.demo.Entity.Student;
 import com.demo.Repo.StudentRepo;
 import com.demo.Service.StudentService;
 
+import jakarta.validation.Valid;
+
 @CrossOrigin(origins = "*")
+@Validated
 @RestController
 public class MyConroller {
 
@@ -24,7 +28,7 @@ public class MyConroller {
 	StudentService studentService;
 
 	@PostMapping("addStudent")
-	public Student addStudent(@RequestBody Student student) {
+	public Student addStudent(@Valid @RequestBody Student student) {
 		return studentService.addStudent(student);
 	}
 	

@@ -34,7 +34,7 @@ public class StudentImp implements StudentService{
 	@Override
 	public String deleteById(int id) {
 		studentRepo.deleteById(id);
-		return "deleted";
+		return "delete successful";
 		
 	}
 	@Override
